@@ -1,5 +1,8 @@
+using RenderData;
 using System;
+using System.Windows;
 using System.Windows.Controls;
+
 
 namespace WallRail2025
 {
@@ -8,19 +11,6 @@ namespace WallRail2025
         public MainForm()
         {
             InitializeComponent();
-            if (RailGeometryType.Text == "1")
-            {
-                Straight.Checked = true;
-
-            }
-            else if (RailGeometryType.Text == "0")
-            {
-
-                Leveled.Checked = true;
-            }
-            
-
-
 
         }
 
@@ -60,26 +50,6 @@ namespace WallRail2025
 
         }
 
-        private void Leveled_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Leveled.Checked)
-            {
-                SetAttributeValue(RailGeometryType, "0");
-                
-            }
-        }
-
-        private void Straight_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Straight.Checked)
-            {
-                SetAttributeValue(RailGeometryType, "1");
-                
-                
-                
-            }
-        }
-
         private void ProfileCatalog_SelectClicked(object sender, EventArgs e)
         {
             ProfileCatalog.SelectedProfile = SelectedProfileBox.Text;
@@ -103,18 +73,6 @@ namespace WallRail2025
             SetAttributeValue(SelectedMaterialBox, MaterialCatalog.SelectedMaterial);
         }
 
-        private void RailGeometryType_TextChanged(object sender, EventArgs e)
-        {
-            // If the hidden box says "1", check Straight. Otherwise, check Leveled.
-            if (RailGeometryType.Text == "1")
-            {
-                Straight.Checked = true;
-
-            }
-            else
-            {
-                Leveled.Checked = true;
-            }
-        }
+        
     }
 }

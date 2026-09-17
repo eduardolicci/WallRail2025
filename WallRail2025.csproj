@@ -10,6 +10,9 @@
 		<AssemblyName>WallRail2025</AssemblyName>
 	</PropertyGroup>
 	<ItemGroup>
+	  <Reference Include="Tekla.CustomUtilities">
+	    <HintPath>..\..\Apps\2025\Tekla.CustomUtilities\bin\Debug\Tekla.CustomUtilities.dll</HintPath>
+	  </Reference>
 	  <Reference Include="Tekla.Structures">
 	    <HintPath>C:\Program Files\Tekla Structures\2025.0\bin\Tekla.Structures.dll</HintPath>
 	    <Private>False</Private>
@@ -45,6 +48,6 @@
 	  </EmbeddedResource>
 	</ItemGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-	  <Exec Command="set envDir=2025.0\Environments\common\extensions\WallRail&#xA;set tsDirA=C:\ProgramData\Trimble\Tekla Structures\&#xA;&#xA;if $(ConfigurationName) == Debug (&#xA;    :: Check if the target directory exists and create it if not&#xA;    IF NOT EXIST &quot;%25tsDirA%25%25envDir%25&quot; MKDIR &quot;%25tsDirA%25%25envDir%25&quot;&#xA;    &#xA;    :: Now perform the copy if the base directory exists (which it should if the above succeeded or it already existed)&#xA;    if exist &quot;%25tsDirA%25&quot; xcopy &quot;$(TargetDir)*$(TargetExt)&quot; &quot;%25tsDirA%25\%25envDir%25&quot; /y /c /q&#xA;)&#xD;&#xA;)" />
+	  <Exec Command="set envDir=2026.0\Environments\common\extensions\WallRail2025&#xA;set tsDirA=C:\ProgramData\Trimble\Tekla Structures\&#xA;&#xA;if $(ConfigurationName) == Debug (&#xA;    :: Check if the target directory exists and create it if not&#xA;    IF NOT EXIST &quot;%25tsDirA%25%25envDir%25&quot; MKDIR &quot;%25tsDirA%25%25envDir%25&quot;&#xA;    &#xA;    :: Now perform the copy if the base directory exists (which it should if the above succeeded or it already existed)&#xA;    if exist &quot;%25tsDirA%25&quot; xcopy &quot;$(TargetDir)*$(TargetExt)&quot; &quot;%25tsDirA%25\%25envDir%25&quot; /y /c /q&#xA;)&#xD;&#xA;)" />
 	</Target>
 </Project>
